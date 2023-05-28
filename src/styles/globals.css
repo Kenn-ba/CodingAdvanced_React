@@ -1,11 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap");
 
-body{
+.home{
     background: linear-gradient(to top,#EEF8FF, #D1F5FF);
     background: no-repeat;
     background-size: cover;
-    width: 100%;
-    height: 100%;
     overflow-x: hidden;
     font-family: "Montserrat", sans-serif;
 }
