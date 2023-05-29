@@ -1,64 +1,259 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
-
-.foto{
-    display: block;
-    border-radius: 25px;
-}
-
 .body{
-    background: linear-gradient(to top, #C0C0CC, #F8F8FA);
+    background-color: #101229;
     background-size: cover;
     background-repeat: no-repeat;
-    margin: 0;
+    top: 0;
+    overflow-x: hidden;
+    width: 100%;
     height: 100vh;
+    position: absolute;
 }
+
+@media only screen and (max-width: 480px){
+
 .title{
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 3rem;
-    color: #001B2E;
+    color: #F8F8FA;
     text-align: center;
-    margin-top: 2vh; 
+    margin-top: 2vh;
+    margin-bottom: 4vh; 
 }
 .stationCard{
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
-    margin: auto;
-    column-gap: 6%;
+    width: 100%;
     row-gap: 2vh;
-    align-items: center;
+    margin: auto;
     justify-content: center;
 }
 .beacon{
+    color: #F8F8FA;
     font-family: 'Montserrat', sans-serif;
+    background-color: #464B71;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    column-gap: 4%;
+    width: 80%;
+    height: 12vh;
+    border-radius: 12px;
+}
+.beacon__image{
+    width: 40%;
+    height: auto;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+.beacon__content{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: auto;
+}
+.beacon__address{
+    font-size: 16px;
+    font-weight: bold;
+}
+.beacon__name{
+    font-size: 12px;
+    font-weight: normal;
+}
+.beacon__amount{
+    font-size: 12px;
+    font-weight: normal;
+}
+.beacon__distance{
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.lowerButtons{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    column-gap: 4%;
+    row-gap: 1.5vh;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.userZone{
+    font-family: 'Montserrat', sans-serif;
+    color: #F8F8FA;
+    background-color: #464B71;
+    width: 48%;
+    height: 18vh;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    line-height: 3vh;
-    background: linear-gradient(to left, #294C60, #ADB6C4);
-    width: 100%;
-    height: 48vh;
-    border-radius: 24px;
     justify-content: space-around;
 }
-.beacon__image{
-    width: 100%;
+.userZone__image{
+    width: 50%;
     height: auto;
 }
-.beacon__name{
-    width: fit-content;
-    font-size: medium;
-    font-weight:lighter;
-}
-.beacon__address{
-    text-align: center;
-    font-weight: bold;
-}
-.beacon__details{
-    width: 100%;
-    font-weight: normal;
+.rates{
+    font-family: 'Montserrat', sans-serif;
+    color: #F8F8FA;
+    background-color: #464B71;
+    width: 48%;
+    height: 18vh;
+    border-radius: 15px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
+    align-items: center;
+}
+.rates__image{
+    width: 50%;
+    height: auto;
+}
+.trouble{
+    font-family: 'Montserrat', sans-serif;
+    color: #F8F8FA;
+    background-color: #464B71;
+    width: 48%;
+    height: 18vh;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: smaller;
+    justify-content: space-around;
+    align-items: center;
+}
+.trouble__image{
+    width: 50%;
+    height: auto;
+}
+}
+@media only screen and (min-width: 481px){
+    .title{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 3rem;
+        color: #F8F8FA;
+        text-align: center;
+        margin-top: 2vh;
+        margin-bottom: 4vh; 
+    }
+    .stationCard{
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+        row-gap: 2vh;
+        column-gap: 4%;
+        margin: auto;
+        justify-content: center;
+    }
+    .beacon{
+        color: #F8F8FA;
+        font-family: 'Montserrat', sans-serif;
+        background-color: #464B71;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        column-gap: 4%;
+        width: 48%;
+        height: 12vh;
+        border-radius: 12px;
+    }
+    .beacon__image{
+        width: 40%;
+        height: auto;
+        border-top-left-radius: 12px;
+        border-bottom-left-radius: 12px;
+    }
+    .beacon__content{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: auto;
+    }
+    .beacon__address{
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .beacon__name{
+        font-size: 12px;
+        font-weight: normal;
+    }
+    .beacon__amount{
+        font-size: 12px;
+        font-weight: normal;
+    }
+    .beacon__distance{
+        font-size: 12px;
+        font-weight: normal;
+    }
+    
+    .lowerButtons{
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        display: flex;
+        flex-wrap: wrap;
+        width: 80%;
+        column-gap: 4%;
+        row-gap: 2vh;
+        margin-left: 10%;
+        margin-right: 10%;
+        justify-content: space-around;
+    }
+    .userZone{
+        font-family: 'Montserrat', sans-serif;
+        color: #F8F8FA;
+        background-color: #464B71;
+        width: 24%;
+        height: 24vh;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .userZone__image{
+        width: 50%;
+        height: auto;
+    }
+    .rates{
+        font-family: 'Montserrat', sans-serif;
+        color: #F8F8FA;
+        background-color: #464B71;
+        width: 24%;
+        height: 24vh;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .rates__image{
+        width: 50%;
+        height: auto;
+    }
+    .trouble{
+        font-family: 'Montserrat', sans-serif;
+        color: #F8F8FA;
+        background-color: #464B71;
+        width: 24%;
+        height: 24vh;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        font-size: smaller;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .trouble__image{
+        width: 50%;
+        height: auto;
+    }
 }
