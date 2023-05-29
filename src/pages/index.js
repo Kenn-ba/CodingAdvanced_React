@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Head from 'next/head';
-
 import styles from '@/styles/Home.module.css';
 import { useState, useEffect } from 'react';
 import { getDistance } from '@/utils/getDistance';
@@ -11,15 +10,27 @@ export default function Home() {
   const [location, setLocation] = useState({});
   const { network, isLoading, isError } = useNetwork();
 
-  // use effect gebruiken om bv iets op te roepen enkel bij opstart van de app
+  const [nearestStations, setNearestStations] = useState([]);
+
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          setLocation({
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          });
+          const { latitude, longitude } = position.coords;
+
+          const updatedStations = network?.stations?.map(station => ({
+            ...station,
+            distance: getDistance(latitude, longitude, station.latitude, station.longitude).distance / 1000
+          }));
+
+          // Sort stations by distance
+          updatedStations.sort((a, b) => a.distance - b.distance);
+
+          // Slice the array to get the first 4 stations
+          const nearest = updatedStations.slice(0, 4);
+
+          setLocation({ latitude, longitude });
+          setNearestStations(nearest);
         },
         (error) => {
           console.error(error);
@@ -28,20 +39,17 @@ export default function Home() {
     } else {
       console.error('Geolocation is not supported by this browser.');
     }
-  }, []);
+  }, [network]);
 
+  const [filter, setFilter] = useState('');
 
-    const [filter,setFilter] = useState('');
-    
   if (isLoading) return <div>Loading...</div>
   if (isError) return <div>Error</div>
-
-  const stations = network.stations.filter(station => station.name.toLowerCase().indexOf(filter.toLowerCase()) >= 0);
 
   function handleFilterChange(e) {
     setFilter(e.target.value);
   }
-  console.log(stations)
+  console.log(nearestStations)
 
   return (
     <>
@@ -51,18 +59,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <body className={styles.body}>
+      <div className={styles.body}>
         <header>
           <h1 className={styles.title}>VELO</h1>
         </header>
         <main>
           <div className={styles.stationCard}>
-            <div className={styles.stationCard__content}>
-              {stations.map(station => <StationBeacon station={station} key={station.id} />)}
-            </div>
+            {nearestStations.map(station => <StationBeacon station={station} key={station.id} />)}
           </div>
         </main>
-      </body>
+      </div>
     </>
   )
 }

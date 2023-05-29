@@ -11,4 +11,4 @@ export default function StationImage(props) {
   return (
     <img className={styles.foto} src={image} width="100%" height="300px" alt={props.station.name}/>
   )
-}
+} 
